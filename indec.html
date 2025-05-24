@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elite Advocacy Law Firm | Advocate Aasim Ali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #121212; color: #fff; }
+    .splash {
+      height: 100vh;
+      background: linear-gradient(to right, #000000, #2a2a2a);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center;
+    }
+    .splash h1 {
+      font-size: 2.5em;
+      color: crimson;
+      margin: 0;
+    }
+    .splash p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 25px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+    h2 { text-align: center; color: crimson; margin-bottom: 10px; }
+    label { display: block; margin-top: 15px; font-weight: bold; color: #eee; }
+    input, select, textarea {
+      width: 100%; padding: 10px;
+      margin-top: 6px; border-radius: 6px;
+      border: none; font-size: 1em;
+      background: #2c2c2c; color: white;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+    button {
+      margin-top: 25px; width: 100%;
+      padding: 12px; font-size: 1em;
+      background: crimson; color: white;
+      border: none; border-radius: 6px;
+      cursor: pointer; font-weight: bold;
+    }
+    button:hover { background: #c40000; }
+    .footer {
+      text-align: center; margin-top: 30px; font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <h1>ELITE ADVOCACY LAW FIRM</h1>
+  <p>Advocate Aasim Ali</p>
+</div>
+
+<div class="container" id="form-section" style="display: none;">
+  <h2>Request Legal Help</h2>
+  <form id="lawForm" action="https://formspree.io/f/mqaqorzz" method="POST" onsubmit="return redirectToWhatsApp();">
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" id="name" required placeholder="Your full name">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" name="phone" id="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+
+    <label for="email">Email Address:</label>
+    <input type="email" name="email" id="email" required placeholder="you@example.com">
+
+    <label for="category">Select Legal Issue:</label>
+    <select name="category" id="category" required>
+      <option value="">-- Select Category --</option>
+      <option>Civil Dispute</option>
+      <option>Criminal Case</option>
+      <option>Divorce/Family Matter</option>
+      <option>Property Dispute</option>
+      <option>Cheque Bounce (138 NI Act)</option>
+      <option>Consumer Forum Case</option>
+      <option>Employment/Labour Law</option>
+      <option>Contract Drafting/Review</option>
+      <option>Arbitration & Mediation</option>
+      <option>Cyber Crime</option>
+      <option>Intellectual Property (IPR)</option>
+      <option>Taxation (Income Tax / GST)</option>
+      <option>Real Estate/Builder Dispute</option>
+      <option>Service Matters (Govt Employees)</option>
+      <option>Accident Claim (Motor Vehicles)</option>
+      <option>Domestic Violence</option>
+      <option>Anticipatory/Regular Bail</option>
+      <option>RTI or PIL Filing</option>
+      <option>Other</option>
+    </select>
+
+    <label for="description">Brief Description of Your Issue:</label>
+    <textarea name="description" id="description" rows="4" required placeholder="Explain your matter in brief..."></textarea>
+
+    <button type="submit">Submit & Chat on WhatsApp</button>
+  </form>
+  <div class="footer">
+    &copy; 2025 Elite Advocacy Law Firm. All Rights Reserved.
+  </div>
+</div>
+
+<script>
+  // Splash screen transition
+  window.onload = function() {
+    setTimeout(() => {
+      document.getElementById("splash").style.display = "none";
+      document.getElementById("form-section").style.display = "block";
+    }, 2500);
+  };
+
+  function redirectToWhatsApp() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const category = document.getElementById("category").value;
+    const description = document.getElementById("description").value;
+
+    const message = `Hello Advocate Aasim Ali, I am ${name}. I need help regarding: ${category}. Here's a brief: ${description}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = "918700997578"; // Advocate Aasim Ali's WhatsApp number
+
+    setTimeout(() => {
+      window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    }, 500);
+
+    return true;
+  }
+</script>
+
+</body>
+</html>
